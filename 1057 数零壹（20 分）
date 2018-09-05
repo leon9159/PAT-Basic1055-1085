@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+int main()
+{
+	char t[100100];
+	int len;
+	int i;
+	int r;
+	int zero = 0, one = 0;
+	long int s=0;
+	gets(t);
+	len = strlen(t);
+	for (i = 0; i < len; i++)
+	{
+		if (t[i] >= 'a'&&t[i] <= 'z')
+		{
+			s = s + t[i] - 96;
+		}
+		if (t[i] >= 'A'&&t[i] <= 'Z')
+		{
+			s = s + t[i] - 64;
+		}
+	}
+	while (s != 0)
+	{
+		r = s % 2;
+		s = s / 2;
+		if (r == 0)
+			zero++;
+		if (r == 1)
+			one++;
+	}
+	printf("%d %d", zero, one);
+	return 0;
+
+}
