@@ -1,0 +1,28 @@
+#include<stdio.h>
+int main()
+{
+	int n, m;
+	int i,j;
+	int s, t;
+	scanf("%d %d", &n, &m);
+	int score[105];
+	int ans[105];
+	for (i = 1; i <= m; i++)
+		scanf("%d", &score[i]);
+	for (i = 1; i <= m; i++)
+		scanf("%d", &ans[i]);
+	for (i = 0; i < n; i++)
+	{
+		s = 0;
+		for (j = 1; j <= m; j++)
+		{
+			scanf("%d", &t);
+			if (t == ans[j])
+			{
+				s = s + score[j];
+			}
+		}
+		printf("%d\n", s);
+	}
+	return 0;
+}
