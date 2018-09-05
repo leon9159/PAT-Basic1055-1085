@@ -1,0 +1,54 @@
+#include<stdio.h>
+int gys(int x, int y)
+{
+	while (y != x)
+	{
+		if (x >= y)
+			x = x - y;
+		else
+			y = y - x;
+	}
+	if (x == 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+
+}
+int main()
+{
+	int a, b, c, d;
+	int m,n;
+	int j=1;
+	int flag = 0;
+	scanf("%d/%d %d/%d %d", &a, &b, &c, &d, &m);
+	if (a*d > b*c)
+	{
+		n = a;
+		a = c;
+		c = n;
+		n = b;
+		b = d;
+		d = n;
+	}
+	while(j*d < c*m)
+	{
+		if (a*m < b*j &&(gys(j, m) == 1))
+		{
+			if (flag == 0)
+			{
+				printf("%d/%d", j, m);
+				flag = 1;
+			}
+			else
+			{
+				printf(" %d/%d", j, m);
+			}
+		}
+		j++;
+	}
+		return 0;
+}
