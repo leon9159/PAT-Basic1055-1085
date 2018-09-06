@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char t[21];
+	char f[10000];
+	char e[] ="#";
+	int n, i=0,flog=0;
+	scanf("%s %d", t, &n);
+	getchar();
+	do
+	{
+		gets(f);
+		if (strcmp(f,e)==0)
+			break;
+		if ((flog == 0)&&i!=n)
+		{
+			if (strcmp(t, f) == 0)
+			{
+				printf("Welcome in\n");
+				flog = 1;
+			}
+			if (strcmp(t, f) != 0)
+			{
+				printf("Wrong password: %s\n", f);
+				i++;
+				if (i == n)
+				{
+					printf("Account locked\n");
+				}
+			}
+
+		}
+
+	} while (strcmp(f, e) != 0);
+	return 0;
+}
