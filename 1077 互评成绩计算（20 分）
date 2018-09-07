@@ -1,0 +1,39 @@
+#include<stdio.h>
+int main()
+{
+  int n,m;
+  scanf("%d %d",&n,&m);
+  int i,j,k,t,s,d;
+  float w=0,r=0;
+  int min=m,max=0;
+  for(i=0;i<n;i++)
+  {
+    for(j=0,k=-2,min=m,max=0,w=0;j<n;j++)
+    {
+      if(j==0)
+      {
+        scanf("%d",&t);
+      }
+      else
+      {
+        scanf("%d",&s);
+        if((s<=m)&&(s>=0))
+        {
+          k++;
+          if(s>=max)
+          max=s;
+          if(s<=min)
+          min=s;
+          w=s+w;
+        }
+      }
+    }
+    d=(int)(((w-max-min)/k+t)/2+0.5);
+    /*d=(int)w;
+    r=w-d;
+    if(r>=0.5)
+    w=w+1;*/
+    printf("%d\n",d);
+  }
+  return 0;
+}
