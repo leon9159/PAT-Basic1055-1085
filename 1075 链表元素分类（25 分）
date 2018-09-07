@@ -1,0 +1,63 @@
+#include<stdio.h>
+
+struct item{
+int data;
+int next;
+}arr[100000];
+int main()
+{
+    int fi,n,k=0,t;
+    int rake[100000];
+    scanf("%d %d %d",&fi,&n,&t);
+    int i,j,ne;
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&j);
+        scanf("%d %d",&arr[j].data,&arr[j].next);
+    }
+   //printf("%d %05d\n",arr[68237].data,arr[68237].next);
+    ne=fi;
+    while(ne!=-1)
+    {
+        if(arr[ne].data<0)
+        {
+            rake[k]=ne;
+            k++;
+        }
+        ne=arr[ne].next;
+    }
+    ne=fi;
+    while(ne!=-1)
+    {
+        if(arr[ne].data>=0&&arr[ne].data<=t)
+        {
+            rake[k]=ne;
+            k++;
+        }
+        ne=arr[ne].next;
+    }
+    ne=fi;
+    while(ne!=-1)
+    {
+        if(arr[ne].data>t)
+        {
+            rake[k]=ne;
+            k++;
+        }
+        ne=arr[ne].next;
+    }
+    if(k==1)
+        printf("%05d %d -1\n",rake[0],arr[rake[0]].data);
+    else
+   {
+       for(i=0;i<k-1;i++)
+        {
+            if(i==0)
+                printf("%05d %d %05d\n",rake[i],arr[rake[i]].data,rake[i+1]);
+            else
+                printf("%05d %d %05d\n",rake[i],arr[rake[i]].data,rake[i+1]);
+        }
+    printf("%05d %d -1\n",rake[i],arr[rake[i]].data);
+   }
+    return 0;
+}
