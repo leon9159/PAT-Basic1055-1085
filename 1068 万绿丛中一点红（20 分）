@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdlib.h>
+#define len 1010
+int main()
+{
+	int m, n, tol, x, y;
+	int k = 0;
+	scanf("%d %d %d", &m, &n, &tol);
+	int a[len][len];
+	int i, j;
+	for (i = 1; i <= n; i++)
+		for (j = 1; j <= m; j++)
+			scanf("%d", &a[i][j]);
+	for (i = 2; i < n; i++)
+	{
+		if (k <= 1) {
+			for (j = 2; j < m; j++)
+			{
+				if (abs(a[i][j] - a[i - 1][j - 1]) > tol&&abs(a[i][j] - a[i - 1][j])>tol && abs(a[i][j] - a[i - 1][j + 1])>tol && abs(a[i][j] - a[i][j - 1])>tol && abs(a[i][j] - a[i][j + 1])>tol && abs(a[i][j] - a[i + 1][j - 1])>tol && abs(a[i][j] - a[i + 1][j])>tol && abs(a[i][j] - a[i][j + 1])>tol)
+				{
+					if (k == 1)
+					{
+						printf("Not Unique");
+						k++;
+						break;
+					}
+					if (k == 0)
+					{
+						x = i; y = j;
+						k = 1;
+					}
+				}
+			}
+		}
+	}
+	if (k == 0)
+		printf("Not Exist");
+	if (k == 1)
+		printf("(%d, %d): %d", x, y, a[x][y]);
+}
