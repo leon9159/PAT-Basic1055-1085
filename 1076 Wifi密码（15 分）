@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main()
+{
+  char t[4];
+  int n;
+  scanf("%d",&n);
+  int i,j;
+  for(i=0;i<n;i++)
+  {
+    for(j=0;j<4;j++)
+    {
+      scanf("%s",t);
+      if(t[2]=='T')
+      {
+        if(t[0]=='A')
+        printf("1");
+        if(t[0]=='B')
+        printf("2");      
+        if(t[0]=='C')
+        printf("3");      
+        if(t[0]=='D')
+        printf("4");      
+      }
+    }
+  }
+  return 0;
+}
