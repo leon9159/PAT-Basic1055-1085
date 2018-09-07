@@ -1,0 +1,45 @@
+#include<stdio.h>
+int main()
+{
+  int t,k;
+  scanf("%d %d",&t,&k);
+  int n1,n2,b,r,i;
+  for(i=0;i<k;i++)
+  {
+    scanf("%d %d %d %d",&n1,&b,&r,&n2);
+    if(r>t)
+     {
+       printf("Not enough tokens.  Total = %d.\n",t);
+       continue;
+     }
+    if(t>=r)
+    {
+      if((n1<n2)&&(b==1))
+      {
+        t=t+r;
+        printf("Win %d!  Total = %d.\n",r,t);
+      }
+      if((n1>n2)&&(b==0))
+      {
+        t=t+r;
+        printf("Win %d!  Total = %d.\n",r,t);
+      }
+      if((n1<n2)&&(b==0))
+      {
+        t=t-r;
+        printf("Lose %d.  Total = %d.\n",r,t);
+      }
+      if((n1>n2)&&(b==1))
+      {
+        t=t-r;
+        printf("Lose %d.  Total = %d.\n",r,t);
+      }
+    }
+   if(t==0)
+   {
+     printf("Game Over.");
+     break;
+    }
+  }
+  return 0;
+}
